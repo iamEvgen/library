@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+:root {
+  --grayText: rgb(55, 55, 55);
+  --accentColor: #74992e;
+}
+
 body,
 html {
   padding: 0;
@@ -19,7 +24,7 @@ html {
 }
 
 .content {
-  background-image: url(./img/bg.jpeg);
+  background-image: url(./img/bg1.jpeg);
   background-size: cover;
   background-position: center;
 }
@@ -28,4 +33,188 @@ h1 {
   text-align: center;
   margin: 0;
   margin-top: 5px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addBook {
+  background-color: white;
+  border: 0;
+  color: var(--grayText);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  width: 150px;
+  height: 40px;
+  font-family: 'Share Tech Mono', monospace;
+  transition: 0.5s;
+  margin-top: 20px;
+}
+
+.addBook:hover {
+  background-color: var(--accentColor);
+  color: white;
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));;
+  gap: 20px;
+  width: 90%;
+}
+
+.card {
+  color: var(--grayText);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.delButton {
+  border: 0;
+  color: white;
+  background-color: var(--grayText);
+  width: 100%;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin-top: auto;
+  height: 30px;
+}
+
+.delButton:hover {
+  cursor: pointer;
+  background-color: rgb(174, 0, 0);
+  transition: 0.5s;
+}
+
+.modal {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.show {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.modalBox {
+  background-color: white;
+  color: var(--grayText);
+  margin: auto;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+#title {
+  margin-top: 10px;
+}
+
+#saveButton {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.modalBox input[type='text'],
+.modalBox input[type='number'] {
+  line-height: 2rem;
+  font-size: 1.1rem;
+  width: 95%;
+  border: 0;
+  border-radius: 5px;
+  background-color: #eee;
+  text-indent: 10px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.modalBox input[type='text']:focus,
+.modalBox input[type='number']:focus {
+  outline: none;
+  background-color: var(--accentColor);
+  color: white;
+  transition: 0.5s;
+}
+
+.modalBox input[type='text']:focus::placeholder,
+.modalBox input[type='number']:focus::placeholder {
+  color: white;
+}
+
+.readBox label:hover,
+.readBox input:hover {
+  cursor: pointer;
+}
+
+.readBox input {
+  accent-color: var(--accentColor);
+  transform: scale(1.5);
+}
+
+#saveButton {
+  width: 95%;
+  height: 30px;
+  font-size: 1.1rem;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--accentColor);
+  transition: 0.5s;
+}
+
+#saveButton:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.modalBox p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+.modalBox h2 {
+  margin: 0;
+  margin-top: 10px;
 }

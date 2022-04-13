@@ -12,7 +12,25 @@
     <div class="header">
       <h1>Library project</h1>
     </div>
-    <div class="content"></div>
+    <div class="content">
+      <button class="addBook">Add book +</button>
+      <div class="cards"></div>
+    </div>
+  </div>
+
+  <div class="modal hidden">
+    <form action="#" class="modalBox">
+      <h2>Add new book:</h2>
+      <input id="title" type="text" placeholder="Title" maxlength="300" required>
+      <input id="author" type="text" placeholder="Author" maxlength="100" required>
+      <input id="pages" type="number" placeholder="pages" max="2000" required>
+      <div class="readBox">
+        <label for="read">Already read?</label>
+        <input id="read" type="checkbox" name="Already read?" id="1">
+      </div>
+      <button id="saveButton">Save</button>
+      <p>to close click outside the form</p>
+    </form>
   </div>
   
   <script src="./javascript.js"></script>
