@@ -1,5 +1,14 @@
+// VARIABLES
 let myLibrary = [];
 
+// DOC ELEMENTS
+const modal = document.querySelector('.modal');
+const closeField = document.querySelector('.closeField')
+const modalBox = document.querySelector('.modalBox');
+const addButton = document.querySelector('.addBook');
+const saveButton = document.querySelector('#saveButton');
+
+// FUNCTIONS
 function Book(title, author, pages, read, id) {
   this.title = title;
   this.author = author;
@@ -10,6 +19,24 @@ function Book(title, author, pages, read, id) {
 
 function addBookToLibrary() {
   // do stuff here
+}
+
+function openPopupForm() {
+  closeField.classList.remove('hidden');
+  closeField.classList.add('show');
+  modalBox.classList.remove('hidden');
+  modalBox.classList.add('show');
+  modal.classList.remove('hidden');
+  modal.classList.add('show');
+}
+
+function closePopupForm() {
+  closeField.classList.remove('show');
+  closeField.classList.add('hidden');
+  modalBox.classList.remove('show');
+  modalBox.classList.add('hidden');
+  modal.classList.remove('show');
+  modal.classList.add('hidden');
 }
 
 const book1 = new Book('title1', 'author1', 'pages1', 'already read?', 1);
@@ -32,6 +59,10 @@ myLibrary.push(book6);
 
 const book7 = new Book('asdfl;jadsf ;lkasdf ;lkjadsf kljsdf l;kajdf io;qjlwe', 'author3', 'pages3', 'already read?', 3);
 myLibrary.push(book7);
+
+
+
+
 
 function createCard(book) {
   const card = document.createElement('div');
@@ -70,19 +101,14 @@ for (let book of myLibrary) {
 }
 
 // Event listeners
-const modal = document.querySelector('.modal');
-
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.classList.remove('show');
-    modal.classList.add('hidden');
+  if (event.target == closeField) {
+    closePopupForm();
   }
 }
 
-const addButton = document.querySelector('.addBook');
 addButton.addEventListener('click', () => {
-  modal.classList.remove('hidden');
-  modal.classList.add('show');
+  openPopupForm();
 });
 
 

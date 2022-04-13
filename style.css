@@ -16,6 +16,7 @@ html {
   display: grid;
   grid-template-rows: 50px 1fr;
   min-height: 100vh;
+  z-index: 0;
 }
 
 .header {
@@ -101,25 +102,16 @@ h1 {
 }
 
 .modal {
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  z-index: 1;
+  position: absolute;
+  z-index: -1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-
-.show {
-  display: flex;
-}
-
-.hidden {
-  display: none;
 }
 
 .modalBox {
@@ -135,8 +127,48 @@ h1 {
   padding: 20px;
   box-sizing: border-box;
   border-radius: 10px;
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.modal.hidden {
+  z-index: -1;
+  transition: 1s;
+}
+
+.modal.show {
+  z-index: 1;
+  transition: 0s;
+}
+
+/* Need to delete */
+.closeField {
+  background-color: rgba(0,0,0,0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+
+.closeField.hidden {
+  z-index: -9;
+  background-color: rgba(0,0,0,0);
+  transform: scale(0);
+}
+/* Need to delete */
+
+.closeField.show {
+  z-index: 9;
+  background-color: rgba(0,0,0,0.4);
+  transform: scale(1);
+}
+
+.modalBox.show {
+  transform: scale(1);
+}
+
+.modalBox.hidden {
+  transform: scale(0);
 }
 
 #title {
@@ -204,7 +236,7 @@ h1 {
   margin: 0;
 }
 
-@-webkit-keyframes animatezoom {
+/* @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)}
   to {-webkit-transform: scale(1)}
 }
@@ -212,7 +244,7 @@ h1 {
 @keyframes animatezoom {
   from {transform: scale(0)}
   to {transform: scale(1)}
-}
+} */
 
 .modalBox h2 {
   margin: 0;
