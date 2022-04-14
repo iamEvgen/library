@@ -76,7 +76,7 @@ h1 {
   background-color: white;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
   border-radius: 10px;
   padding: 15px;
@@ -86,6 +86,7 @@ h1 {
   border: 0;
   color: white;
   background-color: var(--grayText);
+  /* background-color: rgb(174, 0, 0); */
   width: 100%;
   font-family: 'Share Tech Mono', monospace;
   padding: 5px;
@@ -99,6 +100,7 @@ h1 {
   cursor: pointer;
   background-color: rgb(174, 0, 0);
   transition: 0.5s;
+  transform: scale(1.05);
 }
 
 .modal {
@@ -112,6 +114,7 @@ h1 {
   width: 100%;
   height: 100%;
   overflow: auto;
+  /* background-color: rgba(0,0,0,0.5); */
 }
 
 .modalBox {
@@ -127,13 +130,8 @@ h1 {
   padding: 20px;
   box-sizing: border-box;
   border-radius: 10px;
-  transition: 0.5s;
+  transition: 0.25s;
   z-index: 10;
-}
-
-.modal.hidden {
-  z-index: -1;
-  transition: 1s;
 }
 
 .modal.show {
@@ -141,26 +139,19 @@ h1 {
   transition: 0s;
 }
 
-/* Need to delete */
-.closeField {
-  background-color: rgba(0,0,0,0.4);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 9;
+.modal.hidden {
+  z-index: -1;
+  transition: 1s;
 }
 
-.closeField.hidden {
-  z-index: -9;
+.modal.opacity1 {
+  background-color: rgba(0,0,0,0.5);
+  transition: 0.5s;
+}
+
+.modal.opacity0 {
   background-color: rgba(0,0,0,0);
-  transform: scale(0);
-}
-/* Need to delete */
-
-.closeField.show {
-  z-index: 9;
-  background-color: rgba(0,0,0,0.4);
-  transform: scale(1);
+  transition: 0.5s;
 }
 
 .modalBox.show {
@@ -236,17 +227,33 @@ h1 {
   margin: 0;
 }
 
-/* @-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)}
-  to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-  from {transform: scale(0)}
-  to {transform: scale(1)}
-} */
-
 .modalBox h2 {
   margin: 0;
   margin-top: 10px;
+}
+
+.read.redText {
+  color: red;
+  border: 1px solid red;
+}
+
+.read.greenText {
+  color: var(--accentColor);
+  border: 1px solid var(--accentColor);
+}
+
+.read {
+  transition: 0.5s;
+  
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.read:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.5s;
 }
